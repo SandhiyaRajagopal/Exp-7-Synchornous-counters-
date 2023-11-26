@@ -53,36 +53,61 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Sandhiya R
+RegisterNumber:  23014146
 */
 
+Code:
+
+UP COUNTERS CODE:
+module upcounters(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+	A[3]=(((A[0])&(A[1])&(A[2]))^A[3]);
+	A[2]=(((A[0])&(A[1]))^A[2]);
+	A[1]=(A[0])^A[1];
+	A[0]=A[0]^1;
+end
+endmodule
 
 
-
-
+DOWN COUNTERS CODE:
+module downcounters(clk,A);
+input clk;
+output reg [3:0]A;
+always@(posedge clk)
+begin
+	A[3]=(((~A[0])&(~A[1])&(~A[2]))^A[3]);
+	A[2]=(((~A[0])&(~A[1]))^A[2]);
+	A[1]=(~A[0])^A[1];
+	A[0]=(~A[0])^1;
+end
+endmodule
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+UP COUNTER RTL FORM:
 
+![image](https://github.com/SandhiyaRajagopal/Exp-7-Synchornous-counters-/assets/144870852/268db650-6bee-4017-9313-1e652b6f5037)
 
+DOWN COUNTER RTL FORM:
 
-
-
-
+![image](https://github.com/SandhiyaRajagopal/Exp-7-Synchornous-counters-/assets/144870852/6c65b501-e634-414d-a3c0-422cd7ed28a9)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+UP COUNTER WAVEFORM:
+
+![image](https://github.com/SandhiyaRajagopal/Exp-7-Synchornous-counters-/assets/144870852/1ed39e2c-3f1f-4569-8549-0246224960b8)
 
 
+DOWN COUNTER WAVEFORM:
 
-
-### TRUTH TABLE 
-
-
-
-
+![image](https://github.com/SandhiyaRajagopal/Exp-7-Synchornous-counters-/assets/144870852/45f4a795-1851-4b2a-8d26-dd58326d119e)
 
 
 ### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
